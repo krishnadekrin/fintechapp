@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinFlow - Smart Fintech Solutions</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #f4f8fb;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0a2540, #0f4c81);
+      color: white;
+      padding: 20px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    }
+
+    header h1 {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #7ee0ff;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 80px 60px;
+      background: linear-gradient(135deg, #eaf4ff, #ffffff);
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      max-width: 550px;
+    }
+
+    .hero-text h2 {
+      font-size: 48px;
+      color: #0a2540;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons a {
+      display: inline-block;
+      padding: 14px 24px;
+      margin-right: 15px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: #0f62fe;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #0043ce;
+    }
+
+    .btn-secondary {
+      border: 2px solid #0f62fe;
+      color: #0f62fe;
+      background: white;
+    }
+
+    .btn-secondary:hover {
+      background: #e8f0ff;
+    }
+
+    .hero-card {
+      background: white;
+      width: 340px;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      margin-top: 20px;
+    }
+
+    .balance {
+      font-size: 34px;
+      color: #0a2540;
+      margin: 15px 0;
+      font-weight: bold;
+    }
+
+    .card-row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      color: #555;
+    }
+
+    section {
+      padding: 70px 60px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h3 {
+      font-size: 34px;
+      color: #0a2540;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #666;
+      font-size: 17px;
+    }
+
+    .features,
+    .services,
+    .stats,
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 28px;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card h4 {
+      font-size: 22px;
+      color: #0a2540;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #666;
+      font-size: 15px;
+    }
+
+    .stat-card {
+      text-align: center;
+      background: linear-gradient(135deg, #0f62fe, #42a5f5);
+      color: white;
+      padding: 30px 20px;
+      border-radius: 16px;
+      box-shadow: 0 8px 22px rgba(15,98,254,0.25);
+    }
+
+    .stat-card h4 {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .cta {
+      background: linear-gradient(135deg, #0a2540, #133b5c);
+      color: white;
+      text-align: center;
+      border-radius: 18px;
+      margin: 40px 60px 70px;
+      padding: 60px 25px;
+    }
+
+    .cta h3 {
+      font-size: 36px;
+      margin-bottom: 18px;
+    }
+
+    .cta p {
+      font-size: 18px;
+      margin-bottom: 25px;
+      color: #d9e8f5;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .contact-form {
+      background: white;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    .contact-form button {
+      background: #0f62fe;
+      color: white;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .contact-form button:hover {
+      background: #0043ce;
+    }
+
+    footer {
+      background: #081b2b;
+      color: #c6d4df;
+      text-align: center;
+      padding: 24px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 20px;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      nav a {
+        margin: 0 10px;
+      }
+
+      .hero {
+        padding: 50px 20px;
+      }
+
+      .hero-text h2 {
+        font-size: 34px;
+      }
+
+      section {
+        padding: 50px 20px;
+      }
+
+      .cta {
+        margin: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>FinFlow</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#features">Features</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <h2>Modern Banking for a Digital-First World</h2>
+      <p>
+        Secure payments, smart analytics, instant transfers, and business-friendly fintech tools.
+        Manage your money faster, safer, and smarter with FinFlow.
+      </p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn-primary">Get Started</a>
+        <a href="#services" class="btn-secondary">Explore Services</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <p>Available Balance</p>
+      <div class="balance">₹8,45,900</div>
+      <hr>
+      <div class="card-row">
+        <span>Income</span>
+        <strong>₹1,25,000</strong>
+      </div>
+      <div class="card-row">
+        <span>Expenses</span>
+        <strong>₹42,000</strong>
+      </div>
+      <div class="card-row">
+        <span>Savings</span>
+        <strong>₹83,000</strong>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="section-title">
+      <h3>Our Services</h3>
+      <p>Built for startups, enterprises, and modern customers.</p>
+    </div>
+    <div class="services">
+      <div class="card">
+        <h4>Digital Payments</h4>
+        <p>Fast and secure payment gateway integration for businesses of all sizes.</p>
+      </div>
+      <div class="card">
+        <h4>Smart Wallet</h4>
+        <p>Track balances, spending patterns, and recurring payments from one place.</p>
+      </div>
+      <div class="card">
+        <h4>Business Loans</h4>
+        <p>Quick approval and flexible loan solutions designed for growing companies.</p>
+      </div>
+      <div class="card">
+        <h4>Fraud Protection</h4>
+        <p>Advanced monitoring and real-time alerts to protect financial transactions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">
+      <h3>Why Choose FinFlow</h3>
+      <p>Simple, powerful, and secure fintech platform for today’s needs.</p>
+    </div>
+    <div class="features" id="features">
+      <div class="card">
+        <h4>Bank-Grade Security</h4>
+        <p>We use strong encryption, secure APIs, and monitored infrastructure.</p>
+      </div>
+      <div class="card">
+        <h4>Real-Time Insights</h4>
+        <p>Understand revenue, spending, and customer transactions instantly.</p>
+      </div>
+      <div class="card">
+        <h4>Easy Integration</h4>
+        <p>Connect seamlessly with your applications, payment systems, and workflows.</p>
+      </div>
+      <div class="card">
+        <h4>24/7 Support</h4>
+        <p>Our dedicated support team is available to help you whenever needed.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">
+      <h3>Trusted by Growing Businesses</h3>
+      <p>Helping companies move money with confidence.</p>
+    </div>
+    <div class="stats">
+      <div class="stat-card">
+        <h4>1M+</h4>
+        <p>Transactions Processed</p>
+      </div>
+      <div class="stat-card">
+        <h4>50K+</h4>
+        <p>Active Customers</p>
+      </div>
+      <div class="stat-card">
+        <h4>99.9%</h4>
+        <p>Uptime Reliability</p>
+      </div>
+      <div class="stat-card">
+        <h4>24/7</h4>
+        <p>Support Availability</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">
+      <h3>What Clients Say</h3>
+      <p>Our clients trust us for speed, simplicity, and secure delivery.</p>
+    </div>
+    <div class="testimonials">
+      <div class="card">
+        <h4>Startup Founder</h4>
+        <p>“FinFlow helped us launch payment collections quickly with a clean and reliable system.”</p>
+      </div>
+      <div class="card">
+        <h4>Finance Manager</h4>
+        <p>“The dashboard gives excellent visibility into transactions and settlement reports.”</p>
+      </div>
+      <div class="card">
+        <h4>Retail Business Owner</h4>
+        <p>“Fast settlements and easy integration made a huge difference for our daily operations.”</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta">
+    <h3>Ready to Transform Your Financial Operations?</h3>
+    <p>Build smarter payments, better customer experiences, and stronger financial growth.</p>
+    <a href="#contact" class="btn-primary">Talk to Us</a>
+  </div>
+
+  <section id="contact">
+    <div class="section-title">
+      <h3>Contact Us</h3>
+      <p>We’d love to discuss your fintech requirements.</p>
+    </div>
+    <div class="contact">
+      <div class="card">
+        <h4>Office</h4>
+        <p>FinFlow Technologies Pvt. Ltd.<br>
+        Bangalore, India</p>
+        <br>
+        <h4>Email</h4>
+        <p>support@finflow.com</p>
+        <br>
+        <h4>Phone</h4>
+        <p>+91 98765 43210</p>
+      </div>
+
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <input type="text" placeholder="Company Name">
+        <textarea rows="5" placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 FinFlow. All Rights Reserved. | Secure Fintech Solutions</p>
+  </footer>
+</body>
+</html>
